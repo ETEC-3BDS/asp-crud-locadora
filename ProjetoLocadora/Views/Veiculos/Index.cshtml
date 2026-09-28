@@ -1,0 +1,45 @@
+﻿@model List<ProjetoLocadora.Models.Veiculo>
+
+@{
+    ViewData["Title"] = "Veículos";
+}
+
+<h2>Lista de Veículos</h2>
+
+<a asp-action="CadastrarVeiculo" class="btn btn-primary mb-3">Cadastrar novo veículo</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Placa</th>
+            <th>Ano</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var veiculo in Model)
+        {
+            <tr>
+                <td>@veiculo.Modelo</td>
+                <td>@veiculo.Placa</td>
+                <td>@veiculo.Ano</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@veiculo.Id" class="btn btn-sm btn-warning">Editar</a>
+
+                    <form asp-action="Delete" asp-route-id="@veiculo.Id" method="post" class="d-inline"
+                          onsubmit="return confirm('Deseja realmente excluir este veículo?');">
+                        <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["Mensagem"] != null)
+{
+    <script>
+        alert("@TempData["Mensagem"]");
+    </script>
+}

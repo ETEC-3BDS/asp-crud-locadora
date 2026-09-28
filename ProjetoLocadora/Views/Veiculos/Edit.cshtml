@@ -1,0 +1,34 @@
+﻿@model ProjetoLocadora.Models.Veiculo
+
+@{
+    ViewData["Title"] = "Editar Veículo";
+}
+
+<h2>Editar Veículo</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Modelo"></label>
+        <input asp-for="Modelo" class="form-control" />
+        <span asp-validation-for="Modelo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Placa"></label>
+        <input asp-for="Placa" class="form-control" />
+        <span asp-validation-for="Placa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Ano"></label>
+        <input asp-for="Ano" class="form-control" type="number" />
+        <span asp-validation-for="Ano" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS db_locadora_veiculos;
+USE db_locadora_veiculos;
+
+CREATE TABLE IF NOT EXISTS carros (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Modelo VARCHAR(100) NOT NULL,
+    Placa VARCHAR(20) NOT NULL,
+    Ano INT NOT NULL
+);
